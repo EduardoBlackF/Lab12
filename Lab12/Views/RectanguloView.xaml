@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Lab12"
+             xmlns:viewModels="clr-namespace:Lab12.ViewModels"
+             x:Class="Lab12.Views.RectanguloView">
+    <ContentPage.BindingContext>
+        <viewModels:RectanguloViewModel />
+    </ContentPage.BindingContext>
+    <StackLayout BackgroundColor="#F5EFE6">
+        <Label Text="Rectángulo"
+               FontSize="50"
+               TextColor="#7895B2"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand"
+               Padding="20" />
+        <Frame BackgroundColor="#AEBDCA"
+               VerticalOptions="StartAndExpand"
+               CornerRadius="20"
+               Margin="20,0"
+               Padding="30">
+            <StackLayout Spacing="20">
+                <StackLayout Orientation="Horizontal"
+                             Spacing="20">
+                    <Label Text="Base:"
+                           FontSize="20"
+                           VerticalOptions="Center" />
+                    <Entry Text="{Binding BaseRectangulo, Mode=TwoWay}"
+                           Keyboard="Numeric"
+                           FontSize="20"
+                           HorizontalOptions="FillAndExpand"
+                           HorizontalTextAlignment="End" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Altura:"
+                           FontSize="20"
+                           VerticalOptions="Center" />
+                    <Entry Text="{Binding AlturaRectangulo, Mode=TwoWay}"
+                           Keyboard="Numeric"
+                           FontSize="20"
+                           HorizontalOptions="FillAndExpand"
+                           HorizontalTextAlignment="End" />
+                </StackLayout>
+                <Button Text="Calcular Área"
+                        BackgroundColor="#7895B2"
+                        TextColor="#F5EFE6"
+                        CornerRadius="15"
+                        TextTransform="None"
+                        FontSize="20"
+                        Command="{Binding CalcularAreaCommand}" />
+                <Button Text="Calcular Perímetro"
+                        BackgroundColor="#7895B2"
+                        TextColor="#F5EFE6"
+                        CornerRadius="15"
+                        TextTransform="None"
+                        FontSize="20"
+                        Command="{Binding CalcularPerimetroCommand}" />
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="Center"
+                             Spacing="30">
+                    <Label FontSize="20"
+                           FontAttributes="Bold"
+                           Text="{Binding Area, StringFormat='Área: {0} m²'}" />
+                    <Label FontSize="20"
+                           FontAttributes="Bold"
+                           Text="{Binding Perimetro, StringFormat='Perímetro: {0} m'}" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="CenterAndExpand">
+                    <Label FontSize="15"
+                           FontAttributes="Bold"
+                           Margin="0,50,0,0"
+                           Text="{Binding AlturaRectangulo, StringFormat='h= {0} m.'}"
+                           VerticalOptions="CenterAndExpand" />
+                    <StackLayout Margin="0,50,0,0"
+                                 BackgroundColor="#E8DFCA"
+                                 HeightRequest="80"
+                                 WidthRequest="200">
+                        <Label FontSize="20"
+                               FontAttributes="Bold"
+                               Text="{Binding Area, StringFormat='A= {0} m²'}"
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand" />
+                    </StackLayout>
+                </StackLayout>
+                <Label FontSize="15"
+                       FontAttributes="Bold"
+                       Text="{Binding BaseRectangulo, StringFormat='b= {0} m.'}"
+                       HorizontalOptions="Center"
+                       Margin="60,-20,0,10" />
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</ContentPage>
